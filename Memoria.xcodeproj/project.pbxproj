@@ -9,12 +9,24 @@
 /* Begin PBXBuildFile section */
 		8D2450E422C6F894006B0AAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2450E322C6F894006B0AAE /* AppDelegate.swift */; };
 		8D2450E622C6F894006B0AAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2450E522C6F894006B0AAE /* SceneDelegate.swift */; };
-		8D2450E822C6F894006B0AAE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2450E722C6F894006B0AAE /* ContentView.swift */; };
 		8D2450EA22C6F896006B0AAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D2450E922C6F896006B0AAE /* Assets.xcassets */; };
 		8D2450ED22C6F896006B0AAE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D2450EC22C6F896006B0AAE /* Preview Assets.xcassets */; };
 		8D2450F022C6F896006B0AAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2450EE22C6F896006B0AAE /* LaunchScreen.storyboard */; };
 		8D2450FB22C6F896006B0AAE /* MemoriaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2450FA22C6F896006B0AAE /* MemoriaTests.swift */; };
 		8D24510622C6F896006B0AAE /* MemoriaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D24510522C6F896006B0AAE /* MemoriaUITests.swift */; };
+		8D59522F22D1E1B900D24FD9 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D59522E22D1E1B900D24FD9 /* Tab.swift */; };
+		8D99D9BA22C7A78D00541157 /* Anniv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99D9B922C7A78D00541157 /* Anniv.swift */; };
+		8D99D9C022C7AF8B00541157 /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99D9BF22C7AF8B00541157 /* Gift.swift */; };
+		8D99D9C222C7B2E800541157 /* PublicGift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99D9C122C7B2E800541157 /* PublicGift.swift */; };
+		8D99D9C422C7C3EC00541157 /* GiftInAnnivRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99D9C322C7C3EC00541157 /* GiftInAnnivRow.swift */; };
+		8D99D9C922C89DF600541157 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99D9C822C89DF600541157 /* Int+Extension.swift */; };
+		8D99D9CB22C89E9100541157 /* ZodiacSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99D9CA22C89E9100541157 /* ZodiacSign.swift */; };
+		8D99D9CD22C8E13E00541157 /* NameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99D9CC22C8E13E00541157 /* NameManager.swift */; };
+		8D99D9CF22C8ED5D00541157 /* AnnivDetailCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99D9CE22C8ED5D00541157 /* AnnivDetailCover.swift */; };
+		8D99D9D122C8F3B900541157 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99D9D022C8F3B900541157 /* SampleData.swift */; };
+		8D99D9D422C8F56200541157 /* AnnivDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99D9D322C8F56200541157 /* AnnivDetail.swift */; };
+		8D99D9D722C900E100541157 /* AnnivHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99D9D622C900E100541157 /* AnnivHome.swift */; };
+		8D99D9D922C9080B00541157 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99D9D822C9080B00541157 /* CategoryRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +50,6 @@
 		8D2450E022C6F894006B0AAE /* Memoria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memoria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D2450E322C6F894006B0AAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D2450E522C6F894006B0AAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8D2450E722C6F894006B0AAE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D2450E922C6F896006B0AAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D2450EC22C6F896006B0AAE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8D2450EF22C6F896006B0AAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +60,19 @@
 		8D24510122C6F896006B0AAE /* MemoriaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoriaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D24510522C6F896006B0AAE /* MemoriaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriaUITests.swift; sourceTree = "<group>"; };
 		8D24510722C6F896006B0AAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D59522E22D1E1B900D24FD9 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		8D99D9B922C7A78D00541157 /* Anniv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anniv.swift; sourceTree = "<group>"; };
+		8D99D9BF22C7AF8B00541157 /* Gift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
+		8D99D9C122C7B2E800541157 /* PublicGift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGift.swift; sourceTree = "<group>"; };
+		8D99D9C322C7C3EC00541157 /* GiftInAnnivRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftInAnnivRow.swift; sourceTree = "<group>"; };
+		8D99D9C822C89DF600541157 /* Int+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		8D99D9CA22C89E9100541157 /* ZodiacSign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZodiacSign.swift; sourceTree = "<group>"; };
+		8D99D9CC22C8E13E00541157 /* NameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameManager.swift; sourceTree = "<group>"; };
+		8D99D9CE22C8ED5D00541157 /* AnnivDetailCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnivDetailCover.swift; sourceTree = "<group>"; };
+		8D99D9D022C8F3B900541157 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		8D99D9D322C8F56200541157 /* AnnivDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnivDetail.swift; sourceTree = "<group>"; };
+		8D99D9D622C900E100541157 /* AnnivHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnivHome.swift; sourceTree = "<group>"; };
+		8D99D9D822C9080B00541157 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +125,11 @@
 			children = (
 				8D2450E322C6F894006B0AAE /* AppDelegate.swift */,
 				8D2450E522C6F894006B0AAE /* SceneDelegate.swift */,
-				8D2450E722C6F894006B0AAE /* ContentView.swift */,
+				8D59522E22D1E1B900D24FD9 /* Tab.swift */,
+				8D59522D22D1E0EF00D24FD9 /* Anniversary */,
+				8D99D9D522C900AD00541157 /* Entity */,
+				8D99D9D222C8F4FB00541157 /* Util */,
+				8D99D9C722C89D9200541157 /* Extension */,
 				8D2450E922C6F896006B0AAE /* Assets.xcassets */,
 				8D2450EE22C6F896006B0AAE /* LaunchScreen.storyboard */,
 				8D2450F122C6F896006B0AAE /* Info.plist */,
@@ -134,6 +162,46 @@
 				8D24510722C6F896006B0AAE /* Info.plist */,
 			);
 			path = MemoriaUITests;
+			sourceTree = "<group>";
+		};
+		8D59522D22D1E0EF00D24FD9 /* Anniversary */ = {
+			isa = PBXGroup;
+			children = (
+				8D99D9D622C900E100541157 /* AnnivHome.swift */,
+				8D99D9D822C9080B00541157 /* CategoryRow.swift */,
+				8D99D9D322C8F56200541157 /* AnnivDetail.swift */,
+				8D99D9CE22C8ED5D00541157 /* AnnivDetailCover.swift */,
+				8D99D9C322C7C3EC00541157 /* GiftInAnnivRow.swift */,
+			);
+			path = Anniversary;
+			sourceTree = "<group>";
+		};
+		8D99D9C722C89D9200541157 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8D99D9C822C89DF600541157 /* Int+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		8D99D9D222C8F4FB00541157 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				8D99D9CA22C89E9100541157 /* ZodiacSign.swift */,
+				8D99D9CC22C8E13E00541157 /* NameManager.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		8D99D9D522C900AD00541157 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				8D99D9B922C7A78D00541157 /* Anniv.swift */,
+				8D99D9BF22C7AF8B00541157 /* Gift.swift */,
+				8D99D9C122C7B2E800541157 /* PublicGift.swift */,
+				8D99D9D022C8F3B900541157 /* SampleData.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,9 +335,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D99D9CB22C89E9100541157 /* ZodiacSign.swift in Sources */,
+				8D99D9D122C8F3B900541157 /* SampleData.swift in Sources */,
+				8D99D9D722C900E100541157 /* AnnivHome.swift in Sources */,
+				8D99D9CF22C8ED5D00541157 /* AnnivDetailCover.swift in Sources */,
 				8D2450E422C6F894006B0AAE /* AppDelegate.swift in Sources */,
 				8D2450E622C6F894006B0AAE /* SceneDelegate.swift in Sources */,
-				8D2450E822C6F894006B0AAE /* ContentView.swift in Sources */,
+				8D99D9CD22C8E13E00541157 /* NameManager.swift in Sources */,
+				8D99D9D922C9080B00541157 /* CategoryRow.swift in Sources */,
+				8D99D9C222C7B2E800541157 /* PublicGift.swift in Sources */,
+				8D99D9D422C8F56200541157 /* AnnivDetail.swift in Sources */,
+				8D99D9C422C7C3EC00541157 /* GiftInAnnivRow.swift in Sources */,
+				8D99D9C922C89DF600541157 /* Int+Extension.swift in Sources */,
+				8D59522F22D1E1B900D24FD9 /* Tab.swift in Sources */,
+				8D99D9C022C7AF8B00541157 /* Gift.swift in Sources */,
+				8D99D9BA22C7A78D00541157 /* Anniv.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
