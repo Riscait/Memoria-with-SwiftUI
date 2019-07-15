@@ -6,38 +6,41 @@ struct CategoryRow : View {
     var categoryName: String
     var annivs: [Anniv]
     
+    var listPattern: AnnivList.ListPattern {
+        AnnivList.ListPattern(rawValue: categoryName)!
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text(categoryName)
-                .font(.headline)
-                .padding(.leading, 15)
-                .padding(.top, 5)
+            NavigationLink(destination: AnnivList(listPattern: listPattern)) {
+                HStack {
+                    Text(categoryName)
+                        .font(.headline)
+                        .padding(.leading, 15)
+                        .foregroundColor(.primary)
+                    Spacer()
+                    Text("See More")
+                        .font(.subheadline)
+                        .padding(.trailing, 15)
+                        .foregroundColor(.secondary)
+                }
+            }
             
             ScrollView(.horizontal, showsIndicators: true) {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(annivs.identified(by: \.id)) { anniv in
-                    NavigationLink(
-                            destination: AnnivDetail(anniv: anniv)) {
+                        NavigationLink(destination: AnnivDetail(anniv: anniv)) {
                                 CategoryItem(anniv: anniv)
                         }
                     }
                 }
             }
-            .frame(height: 185)
         }
+        .padding(.top, 5)
+        .padding(.bottom, 5)
     }
 }
 
-struct CategoryItem: View {
-    var anniv: Anniv
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("sss")
-            Text("sss")
-        }
-        .padding(.leading, 15)
-    }
-}
 #if DEBUG
 struct CategoryRow_Previews : PreviewProvider {
     static var previews: some View {

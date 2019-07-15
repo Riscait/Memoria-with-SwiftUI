@@ -17,6 +17,13 @@ struct Anniv {
             familyName: String?,
             givenName: String?
         )
+        
+        var name: String {
+            switch self {
+            case .anniv: return "Anniversary"
+            case .birthday: return "Birthday"
+            }
+        }
     }
     
     let category     : Category

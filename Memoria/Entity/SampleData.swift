@@ -8,7 +8,7 @@
 
 import Foundation
 
-let anniv = Anniv(
+let normalAnniv = Anniv(
     category: .anniv(title: "Marry Day"),
     id: UUID().uuidString,
     theDay: Date()-1000,
@@ -20,7 +20,19 @@ let anniv = Anniv(
     updatedDate: Date(),
     isHidden: false
 )
-let birthday = Anniv(
+let passedAnniv = Anniv(
+    category: .anniv(title: "Conference 2018"),
+    id: UUID().uuidString,
+    theDay: Date(timeIntervalSinceNow: -60 * 60 * 24 * 365 * 2),
+    isAnnualy: false,
+    isFeatured: false,
+    memo: "つれづれなるまゝに、日暮らし、硯にむかひて、心にうつりゆくよしなし事を、そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。（Wikipediaより）",
+    iconImage: nil,
+    createdDate: Date(timeIntervalSinceNow: -60 * 60 * 24 * 365 * 2),
+    updatedDate: Date(timeIntervalSinceNow: -60 * 60 * 24 * 365 * 2),
+    isHidden: false
+)
+let manualBirthday = Anniv(
     category: .birthday(isFromContact: false, familyName: "Arc", givenName: "Hany"),
     id: UUID().uuidString,
     theDay: Date()-1000,
@@ -45,7 +57,7 @@ let importedBirthday = Anniv(
     isHidden: false
 )
 
-let gift = Gift(id: UUID().uuidString,
+let gift1 = Gift(id: UUID().uuidString,
                 goodsName: "Apple Watch Selease 4",
                 isReceived: true,
                 otherPersonName: "Ryunosuke Muramatsu",
@@ -68,6 +80,5 @@ let gift2 = Gift(id: UUID().uuidString,
                 isHidden: false
 )
 
-let annivs = [anniv, birthday, importedBirthday]
-let gifts = [gift, gift2]
-
+let annivs = [normalAnniv, passedAnniv, manualBirthday, importedBirthday]
+let gifts = [gift1, gift2]

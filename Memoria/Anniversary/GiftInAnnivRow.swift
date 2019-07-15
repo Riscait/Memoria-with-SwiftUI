@@ -40,7 +40,7 @@ struct GiftInAnnivRow : View {
 #if DEBUG
 struct GiftInAnnivRow_Previews : PreviewProvider {
     static var previews: some View {
-        GiftInAnnivRow(gift: gift)
+        GiftInAnnivRow(gift: gift1)
     }
 }
 #endif

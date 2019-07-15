@@ -66,10 +66,10 @@ struct AnnivDetail_Previews : PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                AnnivDetail(anniv: anniv)
+                AnnivDetail(anniv: normalAnniv)
             }
             NavigationView {
-                AnnivDetail(anniv: birthday)
+                AnnivDetail(anniv: manualBirthday)
             }
         }
     }

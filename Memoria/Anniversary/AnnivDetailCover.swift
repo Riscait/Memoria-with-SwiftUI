@@ -16,15 +16,7 @@ struct AnnivDetailCover : View {
     }
     
     var iconImage: Image {
-        if let iconImageData = anniv.iconImage, let uiImage = UIImage(data: iconImageData) {
-            return Image(uiImage: uiImage)
-        }
-        switch anniv.category {
-        case .anniv:
-            return Image("AnnivSample")
-        case .birthday:
-            return Image("BirthdayPersonSample")
-        }
+        AnnivUtil.configureImage(imageData: anniv.iconImage, annivCategory: anniv.category)
     }
     
     var body: some View {
@@ -66,7 +58,7 @@ struct AnnivDetailCover : View {
 #if DEBUG
 struct AnnivDetailCover_Previews : PreviewProvider {
     static var previews: some View {
-        AnnivDetailCover(anniv: anniv)
+        AnnivDetailCover(anniv: normalAnniv)
     }
 }
 #endif
