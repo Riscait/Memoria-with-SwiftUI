@@ -2,7 +2,7 @@ import SwiftUI
 
 /// ホーム画面で表示する各カテゴリーのブロック
 struct CategoryRow : View {
-    
+
     var categoryName: String
     var annivs: [Anniv]
     
@@ -12,7 +12,8 @@ struct CategoryRow : View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            NavigationLink(destination: AnnivList(listPattern: listPattern)) {
+            NavigationLink(destination: AnnivList(listPattern: listPattern)
+                .environmentObject(UserData())) {
                 HStack {
                     Text(categoryName)
                         .font(.headline)

@@ -30,7 +30,7 @@ struct AnnivHome : View {
                     CategoryRow(categoryName: key, annivs: self.sections[key]!)
                 }
                 .listRowInsets(EdgeInsets())
-                // TODO: ここに広告表示
+                // TODO: ここに広告表示したい
                 
                 // すべての記念日をリスト表示で見るためのボタン
                 NavigationLink(destination: AnnivList(listPattern: .all)) {

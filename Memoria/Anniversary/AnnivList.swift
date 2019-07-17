@@ -1,7 +1,9 @@
 import SwiftUI
+import Combine
 
 /// 記念日をリスト形式で表示する
 struct AnnivList : View {
+    @EnvironmentObject var userData: UserData
     
     enum ListPattern: String {
         case anniv = "Anniversary"
@@ -31,13 +33,25 @@ struct AnnivList : View {
             return annivs
         }
     }
+    
     var body: some View {
-            List(filterdAnnivs.identified(by: \.id)) { anniv in
-                NavigationLink(destination: AnnivDetail(anniv: anniv)) {
-                    AnnivRow(anniv: anniv)
+        List {
+            Toggle(isOn: $userData.showFavoritesOnly) {
+                Image(systemName: "star")
+                Text("Favorites Only")
+            }
+            ForEach(filterdAnnivs.identified(by: \.id)) { anniv in
+                if !self.userData.showFavoritesOnly || anniv.isFeatured {
+                    NavigationLink(
+                        destination: AnnivDetail(anniv: anniv)
+                            .environmentObject(self.userData)
+                    ) {
+                        AnnivRow(anniv: anniv)
+                    }
                 }
             }
             .navigationBarTitle(listPattern.rawValue)
+    }
     }
 }
 
@@ -46,7 +60,8 @@ struct AnnivList_Previews : PreviewProvider {
     static var previews: some View {
         NavigationView {
             AnnivList(listPattern: .all)
-            .navigationBarTitle("All Anniversary", displayMode: .inline)
+                .navigationBarTitle("All Anniversary", displayMode: .inline)
+                .environmentObject(UserData())
         }
     }
 }
