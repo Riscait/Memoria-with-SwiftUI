@@ -3,7 +3,7 @@ import Combine
 
 /// 記念日をリスト形式で表示する
 struct AnnivList : View {
-    @EnvironmentObject var userData: UserData
+    @EnvironmentObject private var userData: UserData
     
     enum ListPattern: String {
         case anniv = "Anniversary"
@@ -40,7 +40,7 @@ struct AnnivList : View {
                 Image(systemName: "star")
                 Text("Favorites Only")
             }
-            ForEach(filterdAnnivs.identified(by: \.id)) { anniv in
+            ForEach(filterdAnnivs, id: \.id) { anniv in
                 if !self.userData.showFavoritesOnly || anniv.isFeatured {
                     NavigationLink(
                         destination: AnnivDetail(anniv: anniv)

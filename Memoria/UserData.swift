@@ -3,11 +3,11 @@ import Combine
 
 class UserData: BindableObject {
     
-    let didChange = PassthroughSubject<UserData, Never>()
+    let willChange = PassthroughSubject<Void, Never>()
     
     var showFavoritesOnly = false {
         didSet {
-            didChange.send(self)
+            willChange.send()
         }
     }
 

@@ -16,21 +16,21 @@ struct CategoryItem: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-                AnnivUtil.configureImage(imageData: anniv.iconImage, annivCategory: anniv.category)
-                    .resizable()
-                    .renderingMode(.original)
-                    .scaledToFill()
-                    .frame(width: 100, height: 100)
-                    .cornerRadius(5)
+            AnnivUtil.configureImage(imageData: anniv.iconImage, annivCategory: anniv.category)
+                .resizable()
+                .renderingMode(.original)
+                .scaledToFill()
+                .frame(width: 100, height: 100)
+                .cornerRadius(5)
             Text(title)
-                .color(.primary)
-                    .font(.caption)
-                Text(anniv.theDay.getMonthDayString)
-                    .color(.primary)
-                    .font(.caption)
-            }
-            .padding(.leading, 15)
+                .foregroundColor(.primary)
+                .font(.caption)
+            Text(anniv.theDay.getMonthDayString)
+                .foregroundColor(.primary)
+                .font(.caption)
         }
+        .padding(.leading, 15)
+    }
 }
 
 #if DEBUG

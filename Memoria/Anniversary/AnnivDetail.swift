@@ -2,7 +2,8 @@ import SwiftUI
 
 /// 記念日を選択して遷移する記念日の詳細画面
 struct AnnivDetail : View {
-        
+    @State var showingEditor = false
+
     let anniv: Anniv
     
     var body: some View {
@@ -43,7 +44,7 @@ struct AnnivDetail : View {
                     }
                 }
                 Section(header: Text("Gifts")) {
-                    ForEach(gifts.identified(by: \.id)) { row in
+                    ForEach(gifts, id: \.id) { row in
                         GiftInAnnivRow(gift: row)
                     }
                 }
@@ -52,12 +53,15 @@ struct AnnivDetail : View {
             }
             .navigationBarTitle(Text("Anniversary Detail"), displayMode: .inline)
             .navigationBarItems(trailing:
-                PresentationLink(destination: Text("Editer")) {
+                Button(action: {self.showingEditor.toggle()} ) {
                     Image(systemName: "slider.horizontal.3")
                         .imageScale(.large)
                         .accessibility(label: Text("Edit"))
                 }
-        )
+            )
+            .sheet(isPresented: $showingEditor) {
+                Text("Edit")
+            }
     }
 }
 

@@ -20,7 +20,7 @@ struct AnnivRow : View {
                 .clipped()
 
             Text(anniv.category.name)
-                .color(.primary)
+                .foregroundColor(.primary)
             Spacer()
             
             if anniv.isFeatured {

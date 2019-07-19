@@ -2,6 +2,8 @@ import SwiftUI
 
 /// 記念日をカテゴリ毎に表示するホーム画面
 struct AnnivHome : View {
+    @State var showingProfile = false
+
     /// お気に入りの記念日を抽出
     var featuredAnnivs: [Anniv] {
         annivs.filter {$0.isFeatured}
@@ -26,7 +28,7 @@ struct AnnivHome : View {
                         .clipped()
                 }
                 // カテゴリーでグルーピングしたセクションの数だけブロックを作成
-                ForEach(sections.keys.sorted().identified(by: \.self)) { key in
+                ForEach(sections.keys.sorted(), id: \.self) { key in
                     CategoryRow(categoryName: key, annivs: self.sections[key]!)
                 }
                 .listRowInsets(EdgeInsets())
@@ -40,11 +42,14 @@ struct AnnivHome : View {
             .navigationBarTitle(Text("Anniversarys"), displayMode: .inline)
             // NavigationBarに新規記念日追加ボタンを設置
             .navigationBarItems(trailing:
-                PresentationLink(destination: Text("Editer")) {
+                Button(action: { self.showingProfile.toggle() }) {
                     Image(systemName: "plus.circle.fill")
                         .imageScale(.large)
                         .accessibility(label: Text("Add Anniversary"))
-            })
+                }
+            ).sheet(isPresented: $showingProfile, onDismiss: nil) {
+                    GiftList()
+            }
         }
     }
 }

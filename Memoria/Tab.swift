@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct Tab : View {
+    
     @State private var selection = 0
     
     var body: some View {
@@ -8,22 +9,22 @@ struct Tab : View {
             AnnivHome()
                 .tabItem {
                     Image(systemName: "app.gift")
-                    Text("Anniv")
+                    Text("Anniversary")
             }
             .tag(0)
-            AnnivHome()
+            GiftList()
                 .tabItem {
                     Image(systemName: "gift")
                     Text("Gift")
             }
             .tag(1)
-            AnnivHome()
+            Timeline()
                 .tabItem {
                     Image(systemName: "text.bubble")
                     Text("Timeline")
             }
             .tag(2)
-            AnnivHome()
+            Setting()
                 .tabItem {
                     Image(systemName: "gear")
                     Text("Setting")
