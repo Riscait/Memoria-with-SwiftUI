@@ -2,21 +2,26 @@ import SwiftUI
 
 /// 記念日詳細画面のトップであるカバーブロック
 struct AnnivDetailCover : View {
-    let anniv: Anniv
+    let anniversary: Anniversary
     
     var title: String {
-        switch anniv.category {
-        case .anniv(let title):
-            return title
-        case .birthday(_, let familyName, let givenName):
+        switch anniversary {
+        case let anniv as Anniv:
+            return anniv.title
+        case let birthday as Birthday:
             return NameManager.getFullName(isFamilyNameFirst: true,
-                                           familyName: familyName,
-                                           givenName: givenName)
+                                           familyName: birthday.familyName,
+                                           givenName: birthday.givenName)
+        default: fatalError("存在しない記念日型")
         }
     }
     
+    var anniversaryCategory: AnniversaryCategory {
+        anniversary is Anniv ? .anniv : .birthday
+    }
+    
     var iconImage: Image {
-        AnnivUtil.configureImage(imageData: anniv.iconImage, annivCategory: anniv.category)
+        AnnivUtil.configureImage(imageData: anniversary.iconImage, annivCategory: anniversaryCategory)
     }
     
     var body: some View {
@@ -58,7 +63,7 @@ struct AnnivDetailCover : View {
 #if DEBUG
 struct AnnivDetailCover_Previews : PreviewProvider {
     static var previews: some View {
-        AnnivDetailCover(anniv: normalAnniv)
+        AnnivDetailCover(anniversary: normalAnnivData)
     }
 }
 #endif

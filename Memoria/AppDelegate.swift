@@ -17,8 +17,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // Use Firebase library to configure APIs.
+        // FirebaseAppの共有インスタンスを構成
         FirebaseApp.configure()
+        // 匿名認証
+        Auth.auth().signInAnonymously { (authResult, error) in
+            if let error = error {
+                fatalError("\(error)認証エラー") // TODO: 認証エラーの例外
+            }
+            guard let auth = authResult else {
+                fatalError("認証情報がありません") // TODO: 認証情報がなかった場合の例外
+            }
+            let user = auth.user
+            let isAnonymous = user.isAnonymous
+            let uid = user.uid
+            
+            
+        }
         // Initialize the Google Mobile Ads SDK.
 //        GADMobileAds.configure(withApplicationID: "ca-app-pub-3940256099942544~1458002511")
 

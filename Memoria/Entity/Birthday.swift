@@ -1,34 +1,38 @@
 //
-//  Anniv.swift
+//  Birthday.swift
 //  Memoria
 //
-//  Created by 村松龍之介 on 2019/06/29.
+//  Created by 村松龍之介 on 2019/07/24.
 //  Copyright © 2019 Ryunosuke Muramatsu. All rights reserved.
 //
 
 import Foundation
 
-struct Anniv: Anniversary {
+struct Birthday: Anniversary {
         
-    let id           : String
-    let category     = AnniversaryCategory.anniv
-    let title        : String
-    let theDay       : Date // TODO: Timestamp
-    let isAnnualy    : Bool
-    let isFavorite   : Bool
-    let memo         : String
-    let iconImage    : Data?
-    var createdDate  : Date = Date()
-    var updatedDate  : Date? = nil
-    var isHidden     : Bool = false
+    let id            : String
+    var category      = AnniversaryCategory.birthday
+    let givenName     : String
+    let familyName    : String
+    let isFromContact : Bool
+    let theDay        : Date // TODO: Timestamp
+    let isAnnualy     : Bool
+    let isFavorite    : Bool
+    let memo          : String
+    let iconImage     : Data?
+    let createdDate   : Date
+    let updatedDate   : Date?
+    let isHidden      : Bool
     
-    /// FirestoreがSwiftのカスタムオブジェクトに非対応なので、登録前に辞書型に変換する必要がある
+    /// FirestoreがSwiftのカスタムオブジェクトに非対応なので辞書型に変換する必要がある
     var toDictionary: [String: Any] {
         
         var dictionary = [String: Any]()
         dictionary["id"] = id
         dictionary["category"] = category.rawValue
-        dictionary["title"] = title
+        dictionary["givenName"] = givenName
+        dictionary["familyName"] = familyName
+        dictionary["isFromContact"] = isFromContact
         dictionary["theDay"] = theDay
         dictionary["isAnnualy"] = isAnnualy
         dictionary["isFavorite"] = isFavorite
@@ -42,11 +46,13 @@ struct Anniv: Anniversary {
     }
 }
 
-extension Anniv {
-    // Firestoreのデータは辞書型なので、手動で「Anniv」に変換する
+extension Birthday {
+    // Firestoreのデータは辞書型なので、手動で変換する
     init?(dictionary: [String: Any]) {
         self.id = dictionary["id"] as! String
-        self.title = dictionary["title"] as! String
+        self.givenName = dictionary["givenName"] as! String
+        self.familyName = dictionary["familyName"] as! String
+        self.isFromContact = dictionary["isFromContact"] as! Bool
         self.theDay = dictionary["theDay"] as! Date
         self.isAnnualy = dictionary["isAnnualy"] as! Bool
         self.isFavorite = dictionary["isFavorite"] as! Bool
@@ -57,4 +63,3 @@ extension Anniv {
         self.isHidden = dictionary["isHidden"] as! Bool
     }
 }
-

@@ -9,21 +9,38 @@
 import SwiftUI
 
 struct AnnivRow : View {
-    var anniv: Anniv
     
+    var anniversary: Anniversary
+    
+    var anniversaryCategory: AnniversaryCategory {
+        anniversary is Anniv ? .anniv : .birthday
+    }
+    
+    var title: String {
+        switch anniversary {
+        case let anniv as Anniv:
+            return anniv.title
+        case let birthday as Birthday:
+            return NameManager.getFullName(isFamilyNameFirst: true,
+                                           familyName: birthday.familyName,
+                                           givenName: birthday.givenName)
+        default: fatalError("存在しない記念日型")
+        }
+    }
+
     var body: some View {
         HStack {
-            AnnivUtil.configureImage(imageData: anniv.iconImage, annivCategory: anniv.category)
+            AnnivUtil.configureImage(imageData: anniversary.iconImage, annivCategory: anniversaryCategory)
                 .renderingMode(.original)
                 .scaledToFill()
                 .frame(width: 50, height: 50)
                 .clipped()
 
-            Text(anniv.category.name)
+            Text(title)
                 .foregroundColor(.primary)
             Spacer()
             
-            if anniv.isFeatured {
+            if anniversary.isFavorite {
                 Image(systemName: "star.fill")
                     .imageScale(.medium)
                     .foregroundColor(.yellow)
@@ -36,8 +53,8 @@ struct AnnivRow : View {
 struct AnnivRow_Previews : PreviewProvider {
     static var previews: some View {
         Group {
-            AnnivRow(anniv: annivs[0])
-            AnnivRow(anniv: annivs[1])
+            AnnivRow(anniversary: sampleAnnivs[0])
+            AnnivRow(anniversary: sampleAnnivs[1])
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }

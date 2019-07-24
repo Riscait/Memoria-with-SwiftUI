@@ -14,23 +14,19 @@ struct AnnivList : View {
     
     let listPattern: ListPattern
     
-    var filterdAnnivs: [Anniv] {
+    var filterdAnnivs: [Anniversary] {
         switch listPattern {
         case .anniv:
-            return annivs.filter {
-                if case Anniv.Category.anniv = $0.category { return true }
-                return false
-            }
+            return sampleAnnivs.filter { return $0 is Anniv }
+            
         case .birthday:
-            return annivs.filter {
-                if case Anniv.Category.birthday = $0.category { return true }
-                return false
-            }
+            return sampleAnnivs.filter { return $0 is Birthday }
+
         case .passed:
-            return annivs.filter { !$0.isAnnualy && $0.theDay < Date() }
+            return sampleAnnivs.filter { !$0.isAnnualy && $0.theDay < Date() }
             
         case .all:
-            return annivs
+            return sampleAnnivs
         }
     }
     
@@ -40,13 +36,13 @@ struct AnnivList : View {
                 Image(systemName: "star")
                 Text("Favorites Only")
             }
-            ForEach(filterdAnnivs, id: \.id) { anniv in
-                if !self.userData.showFavoritesOnly || anniv.isFeatured {
+            ForEach(filterdAnnivs, id: \.id) { anniversary in
+                if !self.userData.showFavoritesOnly || anniversary.isFavorite {
                     NavigationLink(
-                        destination: AnnivDetail(anniv: anniv)
+                        destination: AnnivDetail(anniversary: anniversary)
                             .environmentObject(self.userData)
                     ) {
-                        AnnivRow(anniv: anniv)
+                        AnnivRow(anniversary: anniversary)
                     }
                 }
             }

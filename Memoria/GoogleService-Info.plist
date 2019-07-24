@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>832543241541-hcnlug4jmt90pvje7jibj7niq6ak7bvc.apps.googleusercontent.com</string>
+	<string>739135115596-q49jv6m31tr7vbnigamithdios97p9mi.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.832543241541-hcnlug4jmt90pvje7jibj7niq6ak7bvc</string>
+	<string>com.googleusercontent.apps.739135115596-q49jv6m31tr7vbnigamithdios97p9mi</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDtbm0Sqp6jqYmbbt6Qsh_pHzJYm3ItlHU</string>
+	<string>AIzaSyCfTsW9Y48_O-buO9S7RYYYy5Jq56_GYd0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>832543241541</string>
+	<string>739135115596</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>jp.nerco.Memoria-iOS</string>
+	<string>jp.nerco.Memoria</string>
 	<key>PROJECT_ID</key>
-	<string>memorianerco</string>
+	<string>mr-alternative</string>
 	<key>STORAGE_BUCKET</key>
-	<string>memorianerco.appspot.com</string>
+	<string>mr-alternative.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:832543241541:ios:58e5fad14a53ef90</string>
+	<string>1:739135115596:ios:e81303c876db22cd</string>
 	<key>DATABASE_URL</key>
-	<string>https://memorianerco.firebaseio.com</string>
+	<string>https://mr-alternative.firebaseio.com</string>
 </dict>
 </plist>

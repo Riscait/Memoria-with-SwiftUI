@@ -8,7 +8,7 @@ struct GiftInAnnivRow : View {
         if let icon = gift.iconImage, let uiImage = UIImage(data: icon) {
             return Image(uiImage: uiImage)
         }
-        return Image("GiftSample")
+        return Image("GiftSample1")
     }
     
     var directionImage: Image {

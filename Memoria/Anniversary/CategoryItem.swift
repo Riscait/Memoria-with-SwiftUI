@@ -1,22 +1,28 @@
 import SwiftUI
 
 struct CategoryItem: View {
-    var anniv: Anniv
+    var anniversary: Anniversary
     
     var title: String {
-        switch anniv.category {
-        case .anniv(let title):
-            return title
-        case .birthday(_, let familyName, let givenName):
+        switch anniversary {
+        case let anniversary as Anniv:
+            return anniversary.title
+            
+        case let birthday as Birthday:
             return NameManager.getFullName(isFamilyNameFirst: true,
-                                           familyName: familyName,
-                                           givenName: givenName)
+                                           familyName: birthday.familyName,
+                                           givenName: birthday.givenName)
+        default: fatalError()
         }
+    }
+    
+    var anniversaryCategory: AnniversaryCategory {
+        anniversary is Anniv ? .anniv : .birthday
     }
     
     var body: some View {
         VStack(alignment: .leading) {
-            AnnivUtil.configureImage(imageData: anniv.iconImage, annivCategory: anniv.category)
+            AnnivUtil.configureImage(imageData: anniversary.iconImage, annivCategory: anniversaryCategory)
                 .resizable()
                 .renderingMode(.original)
                 .scaledToFill()
@@ -25,7 +31,7 @@ struct CategoryItem: View {
             Text(title)
                 .foregroundColor(.primary)
                 .font(.caption)
-            Text(anniv.theDay.getMonthDayString)
+            Text(anniversary.theDay.getMonthDayString)
                 .foregroundColor(.primary)
                 .font(.caption)
         }
@@ -36,7 +42,7 @@ struct CategoryItem: View {
 #if DEBUG
 struct CategoryItem_Previews : PreviewProvider {
     static var previews: some View {
-        CategoryItem(anniv: manualBirthday)
+        CategoryItem(anniversary: manualBirthdayData)
     }
 }
 #endif

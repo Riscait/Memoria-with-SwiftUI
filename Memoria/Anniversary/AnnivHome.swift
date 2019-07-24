@@ -2,19 +2,23 @@ import SwiftUI
 
 /// 記念日をカテゴリ毎に表示するホーム画面
 struct AnnivHome : View {
-    @State var showingProfile = false
+    /// 記念日追加画面を表示中かどうか
+    @State var showingAddAnniv = false
 
+    let anniversarys = sampleAnnivs
+    
     /// お気に入りの記念日を抽出
-    var featuredAnnivs: [Anniv] {
-        annivs.filter {$0.isFeatured}
+    var featuredAnnivs: [Anniversary] {
+        anniversarys.filter {$0.isFavorite}
     }
     /// 表示すべきブロックを定義
-    var sections: [String: [Anniv]] {
+    var sections: [String: [Anniversary]] {
         // 記念日のカテゴリでグルーピング
-        var categories = Dictionary.init(grouping: annivs) { $0.category.name }
-        // 繰り返さない、終了済みの記念日をカテゴリに追加
-        categories["Passed"] = annivs.filter { $0.theDay < Date() && !$0.isAnnualy }
-        return categories
+        [
+            "Anniversary": anniversarys.filter { $0 is Anniv },
+            "Birthday": anniversarys.filter { $0 is Birthday },
+            "Passed": anniversarys.filter { $0.theDay < Date() && !$0.isAnnualy }
+        ]
     }
     
     var body: some View {
@@ -22,14 +26,14 @@ struct AnnivHome : View {
             ScrollView {
                 // お気に入りが一つもない場合はFeaturedブロックを表示しない
                 if !featuredAnnivs.isEmpty {
-                    FeaturedAnnivs(annivs: featuredAnnivs)
+                    FeaturedAnnivs(anniversarys: featuredAnnivs)
                         .scaledToFill()
                         .frame(height: 200)
                         .clipped()
                 }
                 // カテゴリーでグルーピングしたセクションの数だけブロックを作成
                 ForEach(sections.keys.sorted(), id: \.self) { key in
-                    CategoryRow(categoryName: key, annivs: self.sections[key]!)
+                    CategoryRow(categoryName: key, anniversarys: self.sections[key]!)
                 }
                 .listRowInsets(EdgeInsets())
                 // TODO: ここに広告表示したい
@@ -42,22 +46,27 @@ struct AnnivHome : View {
             .navigationBarTitle(Text("Anniversarys"), displayMode: .inline)
             // NavigationBarに新規記念日追加ボタンを設置
             .navigationBarItems(trailing:
-                Button(action: { self.showingProfile.toggle() }) {
+                Button(action: { self.showingAddAnniv.toggle() }) {
                     Image(systemName: "plus.circle.fill")
                         .imageScale(.large)
                         .accessibility(label: Text("Add Anniversary"))
                 }
-            ).sheet(isPresented: $showingProfile, onDismiss: nil) {
-                    GiftList()
+            ).sheet(isPresented: $showingAddAnniv, onDismiss: nil) {
+                AnnivAddition(repository: AnnivDataStore())
             }
         }
     }
 }
 
 struct FeaturedAnnivs: View {
-    var annivs: [Anniv]
+    var anniversarys: [Anniversary]
+    
+    var anniversaryCategory: AnniversaryCategory {
+        anniversarys.first! is Anniv ? .anniv : .birthday
+    }
+    
     var body: some View {
-        AnnivUtil.configureImage(imageData: annivs[0].iconImage, annivCategory: annivs[0].category)
+        AnnivUtil.configureImage(imageData: anniversarys[0].iconImage, annivCategory: anniversaryCategory)
     }
 }
 

@@ -4,42 +4,37 @@ import SwiftUI
 struct AnnivDetail : View {
     @State var showingEditor = false
 
-    let anniv: Anniv
+    let anniversary: Anniversary
     
     var body: some View {
         
-        let image = Image("AnnivSample")
-        
-        var isBirthday: Bool {
-            if case Anniv.Category.birthday = anniv.category {
-                return true
-            }
-            return false
-        }
+        let image = Image("AnnivSample1")
         
         return VStack {
-            AnnivDetailCover(anniv: anniv)
+            AnnivDetailCover(anniversary: anniversary)
             List {
                 // 誕生日の場合は、星座と干支を表示する
-                if isBirthday {
+                if anniversary is Birthday {
                     Section(header: Text("Anniversary Infomation")) {
                         HStack {
                             Text("Zodiac Star sign")
                                 .font(.subheadline)
                             Spacer()
-                            Text(ZodiacSign.Star.getStarSign(date: anniv.theDay).rawValue)
+                            Text(ZodiacSign.Star.getStarSign(date: anniversary.theDay).rawValue)
                         }
                         HStack {
                             Text("Chinese Zodiac")
                                 .font(.subheadline)
                             Spacer()
-                            Text(ZodiacSign.Chinese.getChineseZodiacSign(date: anniv.theDay)?.rawValue ?? "unknown")
+                            Text(ZodiacSign.Chinese.getChineseZodiacSign(
+                                date: anniversary.theDay)?.rawValue ?? "unknown"
+                            )
                         }
                     }
                 }
-                if !anniv.memo.isEmpty {
+                if !anniversary.memo.isEmpty {
                     Section(header: Text("Note"))  {
-                        Text(anniv.memo)
+                        Text(anniversary.memo)
                             .lineLimit(nil)
                     }
                 }
@@ -70,10 +65,10 @@ struct AnnivDetail_Previews : PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                AnnivDetail(anniv: normalAnniv)
+                AnnivDetail(anniversary: normalAnnivData)
             }
             NavigationView {
-                AnnivDetail(anniv: manualBirthday)
+                AnnivDetail(anniversary: manualBirthdayData)
             }
         }
     }

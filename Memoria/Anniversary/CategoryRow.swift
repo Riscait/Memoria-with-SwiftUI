@@ -4,7 +4,7 @@ import SwiftUI
 struct CategoryRow : View {
     
     var categoryName: String
-    var annivs: [Anniv]
+    var anniversarys: [Anniversary]
     
     var listPattern: AnnivList.ListPattern {
         AnnivList.ListPattern(rawValue: categoryName)!
@@ -30,9 +30,9 @@ struct CategoryRow : View {
             
             ScrollView(.horizontal, showsIndicators: true) {
                 HStack(alignment: .top, spacing: 0) {
-                    ForEach(annivs, id: \.id) { anniv in
-                        NavigationLink(destination: AnnivDetail(anniv: anniv)) {
-                            CategoryItem(anniv: anniv)
+                    ForEach(anniversarys, id: \.id) { anniversary in
+                        NavigationLink(destination: AnnivDetail(anniversary: anniversary)) {
+                            CategoryItem(anniversary: anniversary)
                         }
                     }
                 }
@@ -46,7 +46,7 @@ struct CategoryRow : View {
 #if DEBUG
 struct CategoryRow_Previews : PreviewProvider {
     static var previews: some View {
-        CategoryRow(categoryName: "Birthday", annivs: annivs)
+        CategoryRow(categoryName: "Birthday", anniversarys: sampleAnnivs)
     }
 }
 #endif

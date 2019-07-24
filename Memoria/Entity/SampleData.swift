@@ -8,48 +8,53 @@
 
 import Foundation
 
-let normalAnniv = Anniv(
-    category: .anniv(title: "Marry Day"),
+let normalAnnivData = Anniv(
     id: UUID().uuidString,
+    
+    title: "afaf",
     theDay: Date()-1000,
     isAnnualy: true,
-    isFeatured: true,
+    isFavorite: true,
     memo: "つれづれなるまゝに、日暮らし、硯にむかひて、心にうつりゆくよしなし事を、そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。（Wikipediaより）",
     iconImage: nil,
     createdDate: Date(),
     updatedDate: Date(),
     isHidden: false
 )
-let passedAnniv = Anniv(
-    category: .anniv(title: "Conference 2018"),
+let passedAnnivData = Anniv(
     id: UUID().uuidString,
+    title: "fghsd h",
     theDay: Date(timeIntervalSinceNow: -60 * 60 * 24 * 365 * 2),
     isAnnualy: false,
-    isFeatured: false,
+    isFavorite: false,
     memo: "つれづれなるまゝに、日暮らし、硯にむかひて、心にうつりゆくよしなし事を、そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。（Wikipediaより）",
     iconImage: nil,
     createdDate: Date(timeIntervalSinceNow: -60 * 60 * 24 * 365 * 2),
     updatedDate: Date(timeIntervalSinceNow: -60 * 60 * 24 * 365 * 2),
     isHidden: false
 )
-let manualBirthday = Anniv(
-    category: .birthday(isFromContact: false, familyName: "Arc", givenName: "Hany"),
+let manualBirthdayData = Birthday(
     id: UUID().uuidString,
+    givenName: "g",
+    familyName: "f",
+    isFromContact: false,
     theDay: Date()-1000,
     isAnnualy: true,
-    isFeatured: true,
+    isFavorite: true,
     memo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     iconImage: nil,
     createdDate: Date(),
     updatedDate: Date(),
     isHidden: false
 )
-let importedBirthday = Anniv(
-    category: .birthday(isFromContact: true, familyName: "Cont", givenName: "Act"),
+let importedBirthdayData = Birthday(
     id: UUID().uuidString,
+    givenName: "gg",
+    familyName: "ff",
+    isFromContact: true,
     theDay: Date()-1000,
     isAnnualy: true,
-    isFeatured: true,
+    isFavorite: true,
     memo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     iconImage: nil,
     createdDate: Date(),
@@ -80,5 +85,5 @@ let gift2 = Gift(id: UUID().uuidString,
                 isHidden: false
 )
 
-let annivs = [normalAnniv, passedAnniv, manualBirthday, importedBirthday]
+let sampleAnnivs: [Anniversary] = [normalAnnivData, passedAnnivData, manualBirthdayData, importedBirthdayData]
 let gifts = [gift1, gift2]

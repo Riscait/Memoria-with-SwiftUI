@@ -4,15 +4,15 @@ struct AnnivUtil {
     /// DataからImageを作成して返却する。Dataがnilの場合は、記念日のカテゴリに適したデフォルトImageを返却する
     /// - Parameter imageData: 画像データ
     /// - Parameter annivCategory: 記念日のカテゴリー
-    static func configureImage(imageData: Data?, annivCategory: Anniv.Category) -> Image {
+    static func configureImage(imageData: Data?, annivCategory: AnniversaryCategory) -> Image {
         if let imageData = imageData, let uiImage = UIImage(data: imageData) {
             return Image(uiImage: uiImage).resizable()
         }
         switch annivCategory {
         case .anniv:
-            return Image("AnnivSample").resizable()
+            return Image("AnnivSample1").resizable()
         case .birthday:
-            return Image("BirthdayPersonSample").resizable()
+            return Image("PersonSample1").resizable()
         }
     }
     
@@ -20,7 +20,7 @@ struct AnnivUtil {
         if let imageData = imageData, let uiImage = UIImage(data: imageData) {
             return Image(uiImage: uiImage)
         }
-        return Image("GiftSample")
+        return Image("GiftSample1")
     }
 }
 
